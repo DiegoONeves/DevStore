@@ -1,0 +1,18 @@
+﻿using System.Data.Entity.ModelConfiguration;
+using DevStore.Domain;
+
+namespace DevStore.Infra.Mappings
+{
+    public class CategoryMap: EntityTypeConfiguration<Category>
+    {
+        public CategoryMap()
+        {
+            ToTable("Category");
+
+            //Vou dizer que a chave da tabela é o campo 'Id'
+            HasKey(x=>x.Id);
+            Property(x=>x.Title).HasMaxLength(60).IsRequired();
+
+        }
+    }
+}
